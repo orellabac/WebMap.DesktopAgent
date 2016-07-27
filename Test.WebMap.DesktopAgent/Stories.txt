@@ -1,0 +1,38 @@
+﻿Story: DesktopAgent actions are dynamically loaded from plugins
+
+In Order to provide extensibility 
+Desktop Agent loads "plugins" from a predetermined directory
+And then they are available for client use
+
+Scenario 1: The requested plugin does not exists or could not be loaded
+
+Given a request for Plugin HelloWorldPluginNotFound And Action CustomAction
+When Plugin is not installed
+Then Response Should be 'Status = error Info = plugin not found '
+
+
+Scenario 2: The requested plugin exists but the requested action does not
+
+Given a request for HelloWorldPlugin And Action GreetingsX
+When Plugin is installed
+Then Response Should be 'Status = error Info ={Data='Invalid Action'} 
+
+
+Scenario 3: The requested plugin exists and the requestion action exists, but an error occurs when invoking the action
+
+Given a request for HelloWorldPlugin Action GreetingsWrong
+When Plugin is installed
+Then Response Should be Status = error Info ={Data='Action Error'}
+
+
+Scenario 4: The requested plugin exists and the requestion action exists and the action is executed succesfully
+
+Given a request for 'HelloWorldPlugin' Action='Greetings'
+When Plugin is installed
+Then Response Should be 'Status = OK Info ={Data='Hello World'} 
+
+Scenario 4: The requested plugin exists and the requestion action exists and the action is executed succesfully
+
+Given a request for 'HelloWorldPlugin' Action='NeedsWebGUI'
+When Plugin is installed
+Then Response Should be 'Status = OK Info ={needsGui='yes',html='',js='',css=''} 
