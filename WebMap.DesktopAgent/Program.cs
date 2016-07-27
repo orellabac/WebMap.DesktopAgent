@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
@@ -36,19 +38,31 @@ namespace Mobilize
         private static Dictionary<string, IPlugin> _Plugins;
         private static void LoadPlugins()
         {
-
+            var st = new Stopwatch();
+            st.Start();
+            Trace.TraceInformation("Start loading Plugins");
             ///First determine the path where we will look for dlls that can implement a Desktop Agent plugin
             var searchPath = ConfigurationManager.AppSettings["PLUGIN_SEARCH_PATH"];
             searchPath = searchPath ?? DEFAULT_SEARCH_PATH;
 
+            try {
+                Trace.TraceInformation("using Path {0}", Path.GetFullPath(searchPath));
+            }
+            catch
+            {
+                Trace.TraceInformation("using Path {0}", searchPath);
+            }
             PluginsLoader<IPlugin> loader = new PluginsLoader<IPlugin>(searchPath);
             //Each plugin will then be registered
             _Plugins = new Dictionary<string, IPlugin>();
             IEnumerable<IPlugin> plugins = loader.Plugins;
             foreach (var item in plugins)
             {
+                Trace.TraceInformation("Adding plugin {0}", item.Name);
                 _Plugins.Add(item.Name, item);
             }
+            st.Stop();
+            Trace.TraceInformation("End loading plugins. Elapse {0}",st.ElapsedMilliseconds);
         }
 
 

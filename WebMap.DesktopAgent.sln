@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebMap.DesktopAgent", "WebMap.DesktopAgent\WebMap.DesktopAgent.csproj", "{CB25DE4F-3437-41F2-8499-2E337F480A74}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebMap.DesktopAgent.IPlugin", "WebMap.DesktopAgent.IPlugin\WebMap.DesktopAgent.IPlugin.csproj", "{5329D369-DBAC-4141-B81F-09C8CB0B918B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugins", "Plugins", "{55E9D337-87F2-4081-B1D6-1ECC692F7016}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWorldPlugin", "Plugins\HelloWorldPlugin\HelloWorldPlugin.csproj", "{23C3E265-107F-4E5A-B23C-2034206A4D21}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{0CD662C9-ACF1-4034-BF76-8CD2265AB9F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.WebMap.DesktopAgent", "Test.WebMap.DesktopAgent\Test.WebMap.DesktopAgent.csproj", "{954BD150-7D38-4F70-B606-F445358AEA71}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CB25DE4F-3437-41F2-8499-2E337F480A74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB25DE4F-3437-41F2-8499-2E337F480A74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB25DE4F-3437-41F2-8499-2E337F480A74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB25DE4F-3437-41F2-8499-2E337F480A74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5329D369-DBAC-4141-B81F-09C8CB0B918B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5329D369-DBAC-4141-B81F-09C8CB0B918B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5329D369-DBAC-4141-B81F-09C8CB0B918B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5329D369-DBAC-4141-B81F-09C8CB0B918B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23C3E265-107F-4E5A-B23C-2034206A4D21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23C3E265-107F-4E5A-B23C-2034206A4D21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23C3E265-107F-4E5A-B23C-2034206A4D21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23C3E265-107F-4E5A-B23C-2034206A4D21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{954BD150-7D38-4F70-B606-F445358AEA71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{954BD150-7D38-4F70-B606-F445358AEA71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{954BD150-7D38-4F70-B606-F445358AEA71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{954BD150-7D38-4F70-B606-F445358AEA71}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{23C3E265-107F-4E5A-B23C-2034206A4D21} = {55E9D337-87F2-4081-B1D6-1ECC692F7016}
+		{954BD150-7D38-4F70-B606-F445358AEA71} = {0CD662C9-ACF1-4034-BF76-8CD2265AB9F3}
+	EndGlobalSection
+EndGlobal

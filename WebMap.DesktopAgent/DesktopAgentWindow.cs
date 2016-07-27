@@ -25,7 +25,7 @@ namespace Mobilize
             var listeningMessage = ConfigurationManager.AppSettings["ManagerContent"] ?? "Listening on port {0}";
             this.label1.Text = string.Format(listeningMessage, Mobilize.DesktopAgent.agent_listening_port);
             this.Resize += DesktopAgentWindow_Resize;
-
+            //Load all current plugins
             foreach (var plugin in DesktopAgent.Plugins)
             {
                 var legend = new PluginLegend();
