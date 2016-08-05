@@ -39,7 +39,9 @@ namespace OfficeAppsPlugin
                         var excelApp = new Excel.Application();
                         // Make the object visible.
                         excelApp.Visible = true;
-                        var guid = new Guid();
+                        Excel.Workbook newWorkbook = excelApp.Workbooks.Add();
+
+                        var guid = Guid.NewGuid();
                         excelApplicationReferences.Add(guid, excelApp);
                         return new JObject(new JProperty("ExcelID", guid.ToString())).ToString();
                     }
@@ -54,7 +56,7 @@ namespace OfficeAppsPlugin
                         var row = parameters["row"].Value<int>();
                         var column = parameters["column"].Value<string>();
                         Excel._Worksheet workSheet = (Excel.Worksheet)excelApp.ActiveSheet;
-                        workSheet.Cells[row, column] = parameters["value"].Value<string>();
+                        ((Excel.Range)workSheet.Cells[row, column]).Value = parameters["value"].Value<string>();
                         return new JObject().ToString();
                     }
                 case "GetCell":

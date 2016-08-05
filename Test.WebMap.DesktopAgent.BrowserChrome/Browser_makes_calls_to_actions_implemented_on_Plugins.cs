@@ -18,13 +18,25 @@ namespace Test.WebMap.DesktopAgent.BrowserChrome
     {
 
         [Test]
-        public void An_Ajax_call_is_performed_to_the_DesktopAgent_for_an_existing_plugin_and_action()
+        public void An_Ajax_call_is_performed_to_the_DesktopAgent_for_an_existing_HellowWorld_plugin_and_action()
         {
             Runner.RunScenario(
                     Given_a_sample_page_loaded_on_browser,
                     When_and_ajax_request_for_plugin_HelloWorldPLugin_and_Action_Greetings_Is_Performed,
                     Then_Response_should_be_Status_ok_Info_Data_Hello_World
                 ) ;
+        }
+
+
+        [Test]
+        public void Some_Ajax_calls_are_performed_to_the_DesktopAgent_for_an_existing_OfficeApps_plugin_and_action()
+        {
+            Runner.RunScenario(
+                    Given_a_sample_page_loaded_on_browser,
+                    When_and_ajax_request_for_plugin_OfficeApps_and_Action_OpenExcel,
+                    And_and_ajax_call_for_plugin_OfficeApps_And_Action_SetCell,
+                    Then_Response_should_be_Status_ok_and_Info_Is_EmptyJson
+                );
         }
     }
 }

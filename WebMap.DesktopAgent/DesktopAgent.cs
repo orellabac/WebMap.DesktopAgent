@@ -77,7 +77,7 @@ namespace Mobilize
                     response = new DesktopAgentInteractionResponse()
                     {
                         Status = "error",
-                        Info = new JObject(new JProperty("Data","action error"),new JProperty("Message",ex.Message)).ToString()
+                        Info = new JObject(new JProperty("Data","action error"),new JProperty("Message",ex.Message)).ToString(Formatting.None)
                     };
 
                 }

@@ -1,4 +1,5 @@
 ﻿using Mobilize;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel.Composition;
 
@@ -27,7 +28,7 @@ namespace HelloWorldPlugin
         {
             switch (Action)
             {
-                case "Greetings": return new JObject(new JProperty("Data", "Hello World")).ToString();
+                case "Greetings": return new JObject(new JProperty("Data", "Hello World")).ToString(Formatting.None);
                 case "GreetingsWrong": throw new System.Exception();
                 default:
                     throw new InvalidPluginAction(Action);
