@@ -1,0 +1,11 @@
+﻿Story: Browser makes calls to actions implemented on Plugins
+
+In Order to provide access to desktop functionality for WebMap Apps
+Ajax calls made from the browser 
+Are able to execute actions thru the desktop plugin webapi
+
+Scenario 1: An Ajax call is performed to the DesktopAgent for an existing plugin and action
+Given an sample page
+When and ajax request for plugin HelloWorldPLugin and Action Greetings
+Then Response should be Status ok Info Data Hello World
+

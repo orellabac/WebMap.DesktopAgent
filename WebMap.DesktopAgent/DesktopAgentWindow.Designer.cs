@@ -45,7 +45,7 @@
             this.systemTrayIcon.BalloonTipTitle = "WebMap";
             this.systemTrayIcon.ContextMenuStrip = this.contextMenuForSystemTray;
             this.systemTrayIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("systemTrayIcon.Icon")));
-            this.systemTrayIcon.Text = "notifyIcon1";
+            this.systemTrayIcon.Text = "WebMap Desktop  Agent";
             this.systemTrayIcon.Visible = true;
             // 
             // contextMenuForSystemTray
@@ -54,19 +54,19 @@
             this.closeToolStripMenuItem,
             this.showToolStripMenuItem});
             this.contextMenuForSystemTray.Name = "contextMenuStrip1";
-            this.contextMenuForSystemTray.Size = new System.Drawing.Size(104, 48);
+            this.contextMenuForSystemTray.Size = new System.Drawing.Size(153, 70);
             // 
             // closeToolStripMenuItem
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.closeToolStripMenuItem.Text = "Close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
             // showToolStripMenuItem
             // 
             this.showToolStripMenuItem.Name = "showToolStripMenuItem";
-            this.showToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.showToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.showToolStripMenuItem.Text = "Show";
             this.showToolStripMenuItem.Click += new System.EventHandler(this.showToolStripMenuItem_Click);
             // 

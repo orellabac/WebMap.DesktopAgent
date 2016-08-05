@@ -1,15 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Configuration;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.Http;
-using System.Web.Http.SelfHost;
 using System.Windows.Forms;
 
 namespace Mobilize
@@ -53,6 +43,7 @@ namespace Mobilize
         private void closeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Visible = false;
+            Application.Exit();
         }
 
         private void showToolStripMenuItem_Click(object sender, EventArgs e)
@@ -60,11 +51,6 @@ namespace Mobilize
             this.Visible = true;
             this.WindowState = FormWindowState.Normal;
            
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

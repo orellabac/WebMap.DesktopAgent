@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using System.Runtime.Serialization;
 namespace Mobilize
 {
+    /// <summary>
+    /// Request Object
+    /// </summary>
     [DataContract]
     public class DesktopAgentInteractionRequest
     {

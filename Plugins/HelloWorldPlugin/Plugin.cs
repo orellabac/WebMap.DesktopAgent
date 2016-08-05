@@ -1,4 +1,5 @@
 ﻿using Mobilize;
+using Newtonsoft.Json.Linq;
 using System.ComponentModel.Composition;
 
 namespace HelloWorldPlugin
@@ -24,7 +25,14 @@ namespace HelloWorldPlugin
 
         public string InvokeAction(IPlugin Plugin, string Action, string ActionParams)
         {
-            return "HelloWorld";
+            switch (Action)
+            {
+                case "Greetings": return new JObject(new JProperty("Data", "Hello World")).ToString();
+                case "GreetingsWrong": throw new System.Exception();
+                default:
+                    throw new InvalidPluginAction(Action);
+            }
+            
         }
     }
 }

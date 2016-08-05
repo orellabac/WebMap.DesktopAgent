@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.SelfHost;
 using System.Windows.Forms;
@@ -18,57 +13,9 @@ namespace Mobilize
     /// And it starts up a Web API Selfhost service (by default at 60064)
     /// This Web API can then be called from Web Pages to allow access to the devices.
     /// </summary>
-    static class DesktopAgent
+    static class ProgramDesktopAgent
     {
 
-
-        const string DEFAULT_SEARCH_PATH = "..\\..\\..\\Plugins";
-
-        public static IDictionary<string,IPlugin> Plugins
-        {
-            get
-            {
-                if (_Plugins == null)
-                {
-                    LoadPlugins();
-                }
-                return _Plugins;
-            }
-        }
-        private static Dictionary<string, IPlugin> _Plugins;
-        private static void LoadPlugins()
-        {
-            var st = new Stopwatch();
-            st.Start();
-            Trace.TraceInformation("Start loading Plugins");
-            ///First determine the path where we will look for dlls that can implement a Desktop Agent plugin
-            var searchPath = ConfigurationManager.AppSettings["PLUGIN_SEARCH_PATH"];
-            searchPath = searchPath ?? DEFAULT_SEARCH_PATH;
-
-            try {
-                Trace.TraceInformation("using Path {0}", Path.GetFullPath(searchPath));
-            }
-            catch
-            {
-                Trace.TraceInformation("using Path {0}", searchPath);
-            }
-            PluginsLoader<IPlugin> loader = new PluginsLoader<IPlugin>(searchPath);
-            //Each plugin will then be registered
-            _Plugins = new Dictionary<string, IPlugin>();
-            IEnumerable<IPlugin> plugins = loader.Plugins;
-            foreach (var item in plugins)
-            {
-                Trace.TraceInformation("Adding plugin {0}", item.Name);
-                _Plugins.Add(item.Name, item);
-            }
-            st.Stop();
-            Trace.TraceInformation("End loading plugins. Elapse {0}",st.ElapsedMilliseconds);
-        }
-
-
-        const string default_AGENT_PORT = "60064";
-
-        internal static string agent_listening_port;
 
 
         /// <summary>
@@ -78,12 +25,12 @@ namespace Mobilize
         static void Main()
         {
 
-            agent_listening_port = ConfigurationManager.AppSettings["AGENT_PORT"];
+            DesktopAgent.agent_listening_port = ConfigurationManager.AppSettings["AGENT_PORT"];
 
-            agent_listening_port = agent_listening_port ?? default_AGENT_PORT;
+            DesktopAgent.agent_listening_port = DesktopAgent.agent_listening_port ?? DesktopAgent.default_AGENT_PORT;
 
 
-            var _baseAddress = new Uri(string.Format("http://localhost:{0}/", agent_listening_port));
+            var _baseAddress = new Uri(string.Format("http://localhost:{0}/", DesktopAgent.agent_listening_port));
             HttpSelfHostConfiguration config = new HttpSelfHostConfiguration(_baseAddress);
            
             config.MessageHandlers.Add(new CORSHeaderHandler());
