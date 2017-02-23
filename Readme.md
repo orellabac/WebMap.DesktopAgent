@@ -17,7 +17,8 @@ Desktop applications can access the devices directly connected to the computer.
 ![Diagram of direct access to devices](./directaccesstodevices.png)
 
 But this is not the same scenario for WebApplication. In this cases we can take diferent approaches.
-In this repo we provide an implementation that uses a gateway or Desktop Agent approach
+
+Web applications run inside a web browser. The browser provides an execution sandbox and this sandbox do not allow direct access to the devices.  To provide access a “gateway” must be provided. The gateway might come in the form of a browser extension, an ActiveX, an applet, or it could be implemented by having a local application that hosts and exposes a WEB API that the browser application can perform web requests or in some cases web socket connections.In this repo we provide an implementation that uses this last approach that we also call a "Desktop Agent" approach.
 
 ![Gateway Diagram](./indirectaccesstodevices.png)
 
