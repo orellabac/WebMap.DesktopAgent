@@ -1,6 +1,11 @@
 WebMap Desktop Agent
 =====================
 
+When you are developing applications for a Desktop Environment you have access to a very rich environment. There are a lot of “services” available and a lot of low-level tasks are performed on your behalf by the .net framework. 
+By contrast on a web application, a lot of these “services” are not provided. 
+
+During [WebMap](http://www.mobilize.net/webmap) migrations this is a very common scenario because WebMap upgraded applications come usually from VB6 or Windows Forms migrations to ASP.NET MVC.
+
 
 Why?
 ----
