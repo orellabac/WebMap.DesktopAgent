@@ -24,8 +24,17 @@ namespace Mobilize
         /// An unique identifier for the plugin
         /// </summary>
         string Name { get; }
+        /// <summary>
+        /// This is the gateway of any call that is made to the plugin, 
+        /// </summary>
+        /// <param name="Plugin"></param>
+        /// <param name="Action"></param>
+        /// <param name="ActionParams"></param>
+        /// <returns></returns>
         string  InvokeAction(IPlugin Plugin, string Action,string ActionParams);
-
+        /// <summary>
+        /// Indicate the Plugin Image Source Path 
+        /// </summary>
         string ImgSource { get; }
     }
 }

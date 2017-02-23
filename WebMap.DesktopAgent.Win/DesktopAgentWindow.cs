@@ -13,7 +13,7 @@ namespace Mobilize
             InitializeComponent();
             this.Text = ConfigurationManager.AppSettings["ManagerTitle"] ?? "WebMap Desktop Agent";
             var listeningMessage = ConfigurationManager.AppSettings["ManagerContent"] ?? "Listening on port {0}";
-            this.label1.Text = string.Format(listeningMessage, Mobilize.DesktopAgent.agent_listening_port);
+            this.label1.Text = string.Format(listeningMessage, Mobilize.DesktopAgent.agent_listening_Port);
             this.Resize += DesktopAgentWindow_Resize;
             //Load all current plugins
             foreach (var plugin in DesktopAgent.Plugins)

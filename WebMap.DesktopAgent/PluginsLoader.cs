@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
+using System.Diagnostics;
+using System.Windows.Forms;
 
 namespace Mobilize
 {
@@ -26,6 +28,9 @@ namespace Mobilize
 
         public PluginsLoader(string path)
 		{
+            try
+            {
+                Trace.TraceInformation("Plugins Directory Path:"+ path);
 			DirectoryCatalog directoryCatalog = new DirectoryCatalog(path);
 
 			//An aggregate catalog that combines multiple catalogs
@@ -36,6 +41,17 @@ namespace Mobilize
 
 			//Fill the imports of this object
 			_Container.ComposeParts(this);
+		}
+            catch (System.Exception ex)
+            {
+                ErrorLog Err = new ErrorLog();
+                string error = "Error Load Plugins: " + ex.Message + System.Environment.NewLine
+                    + "Please take a look if this path exist: " + path;
+                Err.generateErrorLog(error, ex.StackTrace);
+                MessageBox.Show(error);
+                throw;
+            }
+
 		}
     }
 }

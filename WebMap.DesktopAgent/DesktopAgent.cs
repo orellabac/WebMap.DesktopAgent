@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -130,9 +131,7 @@ namespace Mobilize
 
         internal const string default_AGENT_PORT = "60064";
 
-        internal static string agent_listening_port;
-
-
-      
+        public static string agent_listening_Port;
+        public static string agent_listening_Host;
     }
 }

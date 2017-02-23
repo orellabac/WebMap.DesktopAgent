@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{CB25DE4F-3437-41F2-8499-2E337F480A74}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Mobilize</RootNamespace>
     <AssemblyName>WebMap.DesktopAgent</AssemblyName>
@@ -35,6 +35,9 @@
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>MobilizeBig.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
@@ -73,15 +76,11 @@
     <Compile Include="ApplicationTextValueProvider.cs" />
     <Compile Include="CORSHeaderHandler.cs" />
     <Compile Include="DesktopAgent.cs" />
+    <Compile Include="DesktopAgentCore.cs" />
     <Compile Include="DesktopAgentInteractionRequest.cs" />
     <Compile Include="DesktopAgentInteractionResponse.cs" />
+    <Compile Include="ErrorLog.cs" />
     <Compile Include="InteractionController.cs" />
-    <Compile Include="DesktopAgentWindow.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DesktopAgentWindow.Designer.cs">
-      <DependentUpon>DesktopAgentWindow.cs</DependentUpon>
-    </Compile>
     <Compile Include="PluginLegend.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -89,15 +88,11 @@
       <DependentUpon>PluginLegend.cs</DependentUpon>
     </Compile>
     <Compile Include="PluginsLoader.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="DesktopAgentWindow.resx">
-      <DependentUpon>DesktopAgentWindow.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="PluginLegend.resx">
       <DependentUpon>PluginLegend.cs</DependentUpon>
     </EmbeddedResource>
