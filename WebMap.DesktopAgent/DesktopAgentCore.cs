@@ -22,8 +22,8 @@ namespace Mobilize
         {
             try
             {
-                DesktopAgent.agent_listening_Host= ConfigurationManager.AppSettings["AGENT_HOST"];
-                DesktopAgent.agent_listening_Port = ConfigurationManager.AppSettings["AGENT_PORT"];
+                DesktopAgent.agent_listening_Host = ConfigurationManager.AppSettings["AGENT_HOST"] ?? "localhost";
+                DesktopAgent.agent_listening_Port = ConfigurationManager.AppSettings["AGENT_PORT"] ?? "60064";
                     
 
                 var _baseUrl = new Uri(string.Format("http://"+ DesktopAgent.agent_listening_Host+ ":{0}/", DesktopAgent.agent_listening_Port));

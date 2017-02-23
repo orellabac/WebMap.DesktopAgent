@@ -15,7 +15,7 @@ namespace Test.WebMap.DesktopAgent.BrowserChrome
         [SetUp]
         public void Initialize()
         {
-            Process.Start(@"..\..\..\WebMap.DesktopAgent\bin\Debug\WebMap.DesktopAgent.exe");
+            Process.Start(@".\WebMap.DesktopAgent.Win.exe");
             driver = new ChromeDriver();
         }
 
