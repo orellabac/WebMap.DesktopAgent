@@ -13,6 +13,14 @@ WebMap applications might need to interact with the client Desktop.
 You either need to write to special directory, interact with a locally installed program or 
 use an special device.
 
+Desktop applications can access the devices directly connected to the computer. 
+![Diagram of direct access to devices](./directaccesstodevices.png)
+
+But this is not the same scenario for WebApplication. In this cases we can take diferent approaches.
+In this repo we provide an implementation that uses a gateway or Desktop Agent approach
+
+![Gateway Diagram](./indirectaccesstodevices.png)
+
 Solution
 --------
 
