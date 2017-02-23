@@ -26,7 +26,7 @@ namespace Mobilize
 
 
 
-        const string DEFAULT_SEARCH_PATH = ".\\Plugins";
+        const string DEFAULT_SEARCH_PATH = ".";
 
         public static bool IsPluginInstalled(string pluginName)
         {

@@ -79,6 +79,10 @@
     <Content Include="Stories.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Plugins\HelloWorldPlugin\HelloWorldPlugin.csproj">
+      <Project>{23c3e265-107f-4e5a-b23c-2034206a4d21}</Project>
+      <Name>HelloWorldPlugin</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WebMap.DesktopAgent.IPlugin\WebMap.DesktopAgent.IPlugin.csproj">
       <Project>{5329d369-dbac-4141-b81f-09c8cb0b918b}</Project>
       <Name>WebMap.DesktopAgent.IPlugin</Name>
