@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.28306.52
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebMap.DesktopAgent", "WebMap.DesktopAgent\WebMap.DesktopAgent.csproj", "{CB25DE4F-3437-41F2-8499-2E337F480A74}"
 EndProject
@@ -25,8 +25,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GUI", "GUI", "{0018323A-624
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2E4CA443-F5E6-4C12-8E76-5D610698C0A7}"
 	ProjectSection(SolutionItems) = preProject
+		TestPages\index.html = TestPages\index.html
 		Readme.md = Readme.md
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CameraPlugin", "Plugins\CameraPlugin\CameraPlugin.csproj", "{4F65784B-D4FE-4987-813C-11A4B988C2D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsScriptHost", "Plugins\WindowsScriptHost\WindowsScriptHost.csproj", "{F26081FC-AE38-4E54-9890-EDFA304AA98C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -62,6 +67,14 @@ Global
 		{D0B8389A-2A8F-496F-B713-C6A9B5621362}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0B8389A-2A8F-496F-B713-C6A9B5621362}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0B8389A-2A8F-496F-B713-C6A9B5621362}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F65784B-D4FE-4987-813C-11A4B988C2D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F65784B-D4FE-4987-813C-11A4B988C2D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F65784B-D4FE-4987-813C-11A4B988C2D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F65784B-D4FE-4987-813C-11A4B988C2D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F26081FC-AE38-4E54-9890-EDFA304AA98C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F26081FC-AE38-4E54-9890-EDFA304AA98C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F26081FC-AE38-4E54-9890-EDFA304AA98C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F26081FC-AE38-4E54-9890-EDFA304AA98C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -72,5 +85,10 @@ Global
 		{440C6337-D495-481C-9CC2-E98EB82268BB} = {0CD662C9-ACF1-4034-BF76-8CD2265AB9F3}
 		{7FEAACF0-74B9-44A3-809C-247768C65312} = {55E9D337-87F2-4081-B1D6-1ECC692F7016}
 		{D0B8389A-2A8F-496F-B713-C6A9B5621362} = {0018323A-6247-4A46-9D90-B45554AEA908}
+		{4F65784B-D4FE-4987-813C-11A4B988C2D8} = {55E9D337-87F2-4081-B1D6-1ECC692F7016}
+		{F26081FC-AE38-4E54-9890-EDFA304AA98C} = {55E9D337-87F2-4081-B1D6-1ECC692F7016}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B66E4745-D6E7-4BFD-9992-E01FB50AC705}
 	EndGlobalSection
 EndGlobal

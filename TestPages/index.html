@@ -1,0 +1,259 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <h1> Sample Test Page for Desktop Agent</h1>
+    <button onclick="doGetCameras()">Get Cameras</button>
+    <select id="cameras">
+        
+    </select>
+
+    <br>
+    <button onclick="doGetCapabilities()">Get Capabilities</button>
+    <select id="capabilities">
+
+    </select>
+    <br> Quality:
+    <br>
+
+    <select id="quality">
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="30">30</option>
+        <option value="40">40</option>
+        <option value="50">50</option>
+        <option value="60">60</option>
+        <option value="70">70</option>
+        <option value="80">80</option>
+        <option value="90">90</option>
+        <option value="100">100</option>
+    </select>
+    <br>
+    <button onclick="doStartCamera()">Start Camera</button>
+    <button onclick="doStopCamera()">Stop Camera</button>
+    <br>
+    <img id="videoFrame" class="video-frame" src="">
+    <br>
+    <label>UserName</label><br>
+    <input id="username" type="text"><br>
+    <button onclick="doGetUserName()">Get UserName</button>
+    <br>
+    <label>UserDomain</label><br>
+    <input id="userdomain" type="text"><br>
+    <button onclick="doGetUserDomain()">Get UserDomain</button>
+    <br>
+    <label>ComputerName</label><br>
+    <input id="computername" type="text"><br>
+    <button onclick="doGetComputerName()">Get ComputerName</button>
+    <br>
+    <label>Printers</label>
+    <br>
+    <textarea id="printers" rows="15" type="text" height="400" width="500"></textarea>
+    <button onclick="doGetPrinters()">Get Printers</button>
+    <script>
+        var refreshInterval;
+
+        function doGetUserName() {
+            var url = "http://localhost:60064";
+            var PluginName = "WindowsScriptHostPlugin";
+            var ActionParams = "";
+            var Action = "Network.UserName";
+            $.ajax({
+                url: url + '/api/Interaction',
+                type: 'POST',
+                data: JSON.stringify({
+                    PluginName: PluginName,
+                    Action: Action,
+                    ActionParams: ActionParams,
+
+                }),
+                success: function(data) {
+                    $("#username").val(data.Info);
+                }
+            });
+        }
+
+        function doGetUserDomain() {
+            var url = "http://localhost:60064";
+            var PluginName = "WindowsScriptHostPlugin";
+            var ActionParams = "";
+            var Action = "Network.UserDomain";
+            $.ajax({
+                url: url + '/api/Interaction',
+                type: 'POST',
+                data: JSON.stringify({
+                    PluginName: PluginName,
+                    Action: Action,
+                    ActionParams: ActionParams,
+
+                }),
+                success: function(data) {
+                    $("#userdomain").val(data.Info);
+                }
+            });
+        }
+
+        function doGetComputerName() {
+            var url = "http://localhost:60064";
+            var PluginName = "WindowsScriptHostPlugin";
+            var ActionParams = "";
+            var Action = "Network.ComputerName";
+            $.ajax({
+                url: url + '/api/Interaction',
+                type: 'POST',
+                data: JSON.stringify({
+                    PluginName: PluginName,
+                    Action: Action,
+                    ActionParams: ActionParams,
+
+                }),
+                success: function(data) {
+
+                    $("#computername").val(data.Info);
+                }
+            });
+        }
+
+        function doGetPrinters() {
+            var url = "http://localhost:60064";
+            var PluginName = "WindowsScriptHostPlugin";
+            var ActionParams = "";
+            var Action = "Network.EnumPrinters";
+            $.ajax({
+                url: url + '/api/Interaction',
+                type: 'POST',
+                data: JSON.stringify({
+                    PluginName: PluginName,
+                    Action: Action,
+                    ActionParams: ActionParams,
+
+                }),
+                success: function(data) {
+                    var info = JSON.parse(data.Info);
+                    var printers = "";
+                    $.each(info, function(index, value) {
+                        printers = printers + value.Name + '\n';
+                    });
+                    $("#printers").val(printers);
+                    console.log(data.Info);
+                }
+            });
+        }
+
+        function doStartCamera() {
+            var url = "http://localhost:60064";
+            var PluginName = "CameraPlugin";
+            var ActionParams = $("#cameras").val() + "," + $("#capabilities").val() + "," + $("#quality").val();
+            var Action = "Start";
+            $.ajax({
+                url: url + '/api/Interaction',
+                type: 'POST',
+                data: JSON.stringify({
+                    PluginName: PluginName,
+                    Action: Action,
+                    ActionParams: ActionParams,
+
+                }),
+                success: function(data) {
+
+                    refreshInterval = setInterval(function() {
+                        GetVideoFrames();
+                    }, 50);
+
+                    console.log(data);
+                }
+            });
+        }
+
+        function doStopCamera() {
+            var url = "http://localhost:60064";
+            var PluginName = "CameraPlugin";
+            var ActionParams = "";
+            var Action = "Stop";
+            $.ajax({
+                url: url + '/api/Interaction',
+                type: 'POST',
+                data: JSON.stringify({
+                    PluginName: PluginName,
+                    Action: Action,
+                    ActionParams: ActionParams,
+
+                }),
+                success: function(data) {
+
+                    clearInterval(refreshInterval);
+                    console.log(data);
+                }
+            });
+        }
+
+        function doGetCameras() {
+            var url = "http://localhost:60064";
+            var PluginName = "CameraPlugin";
+            var ActionParams = "";
+            var Action = "Devices";
+            $.ajax({
+                url: url + '/api/Interaction',
+                type: 'POST',
+                data: JSON.stringify({
+                    PluginName: PluginName,
+                    Action: Action,
+                    ActionParams: ActionParams,
+
+                }),
+                success: function(data) {
+
+                    var info = JSON.parse(data.Info);
+                    $.each(info, function(index, value) {
+                        $("#cameras").append('<option value=' + value.Moniker + '>' + value.Name +
+                            '</option>');
+                    });
+
+                    console.log(data);
+                }
+            });
+        }
+
+        function doGetCapabilities() {
+            var url = "http://localhost:60064";
+            var PluginName = "CameraPlugin";
+            var ActionParams = $("#cameras").val();
+            var Action = "Capabilities";
+            $.ajax({
+                url: url + '/api/Interaction',
+                type: 'POST',
+                data: JSON.stringify({
+                    PluginName: PluginName,
+                    Action: Action,
+                    ActionParams: ActionParams,
+
+                }),
+                success: function(data) {
+
+                    var info = JSON.parse(data.Info);
+                    $.each(info, function(index, value) {
+                        $("#capabilities").append('<option value=' + value.ID + '>' +
+                            "(" + value.FrameSize.Width + "x" + value.FrameSize.Height +
+                            ") Framerate: " + value.AverageFrameRate +
+                            " Bits" + value.BitCount + "'</option>'");
+                    });
+
+                    console.log(data);
+                }
+            });
+        }
+    </script>
+    <img id="videoFrame" class="video-frame" src="">
+    <script src="websockethelper.js"></script>
+    <script src="camera.js"></script>
+</body>
+
+</html>

@@ -30,7 +30,9 @@ namespace Mobilize
 		{
             try
             {
-                Trace.TraceInformation("Plugins Directory Path:"+ path);
+                var fullPath = System.IO.Path.GetFullPath(path);
+                Trace.TraceInformation("Plugins Directory Path:"+ fullPath);
+
 			DirectoryCatalog directoryCatalog = new DirectoryCatalog(path);
 
 			//An aggregate catalog that combines multiple catalogs

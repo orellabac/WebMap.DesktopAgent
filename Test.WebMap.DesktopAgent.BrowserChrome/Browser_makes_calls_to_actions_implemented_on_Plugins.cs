@@ -18,7 +18,7 @@ namespace Test.WebMap.DesktopAgent.BrowserChrome
     {
 
         [Test]
-        [Ignore("Do not force on build")]
+        //[Ignore("Do not force on build")]
         public void An_Ajax_call_is_performed_to_the_DesktopAgent_for_an_existing_HellowWorld_plugin_and_action()
         {
             Runner.RunScenario(
@@ -30,7 +30,7 @@ namespace Test.WebMap.DesktopAgent.BrowserChrome
 
 
         [Test]
-        [Ignore("Do not force on build")]
+        //[Ignore("Do not force on build")]
         public void Some_Ajax_calls_are_performed_to_the_DesktopAgent_for_an_existing_OfficeApps_plugin_and_action()
         {
             Runner.RunScenario(

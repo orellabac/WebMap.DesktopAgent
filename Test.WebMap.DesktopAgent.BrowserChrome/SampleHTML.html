@@ -9,6 +9,29 @@
 <body>
 
     <h1> Sample Test Page for Desktop Agent</h1>
+<script>
 
+
+
+    function doCallOfficePlugin()
+    {
+        var url = "http://localhost:60004";
+        var PluginName = "OfficeApps";
+        var ActionParams = "";
+        var Action = "OpenExcel";
+        $.ajax(
+            {
+                url: url + '/api/Interaction',
+                type: 'POST',
+                data: JSON.stringify(
+                    {
+                        PluginName: PluginName,
+                        Action: Action,
+                        ActionParams: ActionParams,
+                        success: function (data) { window.result = data; }
+                    })
+            });
+    }
+</script>
 </body>
 </html>

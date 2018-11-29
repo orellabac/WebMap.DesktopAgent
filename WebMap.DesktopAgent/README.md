@@ -27,4 +27,20 @@ OfficeApps: This is a very basic plugins that allow the web app to start either 
 
 These plugins are very basic they have been provided just to illustrate the concept of WebMap Desktop Agent plugins
 
+To call these plugins you perform ajax calls like:
 
+var url = "http://localhost:60004";
+var PluginName = "OfficeApps";
+var ActionParams = "";
+var Action = "OpenExcel";
+$.ajax(
+    {
+        url: url + '/api/Interaction',
+        type:'POST',
+        data:JSON.stringify(
+            { PluginName: PluginName,
+              Action: Action,
+              ActionParams: ActionParams,
+              success: function(data) { window.result = data; }
+            })
+    });
